@@ -9,7 +9,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_LIST_DIR}/cmake")
 # pcl 1.7 causes a segfault when it is built with debug mode
 set(CMAKE_BUILD_TYPE "RELEASE")
 
-find_package(OpenCV REQUIRED)
+find_package(OpenCV 2 REQUIRED PATHS /usr/local/opencv-2.4.13/)
 
 find_package(catkin REQUIRED COMPONENTS
   nodelet
@@ -48,6 +48,7 @@ catkin_package(
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
+  ${OpenCV_INCLUDE_DIRS}
 )
 
 
